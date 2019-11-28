@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import _ from 'lodash';
+import { useState } from 'react';
 
-export function useComparedHook<S>(initialState: (() => S) | S) {
+export function useDeepComparedState<S>(initialState: (() => S) | S) {
   const [value, setValue] = useState(initialState)
   let [change, setChange] = useState(false)
   return [value, function (newState: (() => S) | S): void {

@@ -4,13 +4,16 @@
   "description": "react-hooks react ",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm run bundle && mocha",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch",
-    "build": "npm run build:types && npm run build:js",
-    "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
-    "bundle": "rollup -c"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "tslint 'src/**/*.{ts,tsx}' -t verbose",
+    "lint:fix": "yarn lint --fix",
+    "lint:types": "tsc --noEmit",
+    "build:cjs": "tsc",
+    "build:es": "tsc -m esNext --outDir esm",
+    "build": "yarn build:cjs && yarn build:es",
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -34,13 +37,23 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-typescript": "^7.7.4",
+    "@semantic-release/changelog": "3.0.5",
+    "@semantic-release/git": "7.0.18",
+    "@semantic-release/npm": "5.3.4",
+    "@types/jest": "24.0.22",
+    "@types/lodash": "^4.14.149",
+    "@types/react": "^16.9.13",
     "mocha": "^6.2.2",
     "react": "^16.12.0",
-    "rollup": "^1.27.4",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "typescript": "^3.7.2"
+    "semantic-release": "15.13.30",
+    "ts-loader": "6.2.1",
+    "ts-node": "8.4.1",
+    "tslint": "6.0.0-beta1",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-eslint-rules": "5.4.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "tslint-react": "4.1.0",
+    "typescript": "3.7.2"
   },
   "dependencies": {
     "lodash": "^4.17.15"
