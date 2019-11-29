@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 export function useGlobalError(listenerFunction: (event: ErrorEvent) => void) {
   let [timeStamp, setTimeStamp] = useState()
   let [event, setEvent] = useState()
-  function handleError(event: ErrorEvent) {
+  function handleError(event: ErrorEvent): void {
     const { timeStamp } = event
     setTimeStamp(timeStamp)
     setEvent(event)
