@@ -106,7 +106,7 @@
     "typescript": "3.7.2"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "react-use": "^13.10.0",
     "copy-to-clipboard": "^3.2.0",
     "nano-css": "^5.2.1",
